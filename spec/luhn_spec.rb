@@ -36,7 +36,14 @@ describe Luhn do
       result = [2,1,2,1,2,1,2,1,2,1,2,1,2,1,8]
       @luhn.double_every_other_digit.must_equal(result)
     end
+  end
 
+  describe :sum_result do
+    it "should sum the result of the numbers, including the removed digit" do
+      doubled_digits = [2,1,2,1,2,1,2,1,2,1,2,1,2,1,8]
+      @luhn.stubs(:double_every_other_digit).returns(doubled_digits)
+      @luhn.sum_result.must_equal 30
+    end
   end
 
 end

@@ -19,4 +19,8 @@ class Luhn
     reversed_numbers = numbers.reverse()
     reversed_numbers.each_with_index.map{|n, i| i.even? ? n*2 : n}
   end
+
+  def sum_result
+    double_every_other_digit.inject(&:+) + get_numbers.last
+  end
 end
