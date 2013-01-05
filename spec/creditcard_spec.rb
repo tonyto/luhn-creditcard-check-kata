@@ -1,4 +1,6 @@
 require 'minitest/autorun'
+require "mocha/setup"
+
 require File.expand_path(File.dirname(__FILE__)) + '/../lib/creditcard.rb'
 
 describe CreditCard do
@@ -38,6 +40,16 @@ describe CreditCard do
         card = subject.new('411111111111111')
         card.identify.must_equal "VISA"
       end
+    end
+  end
+
+  describe :validate do
+    it "should perform the luhn checksum on the number" do
+      number = '411111111111111'
+      card = subject.new(number)
+      Luhn.expects(:valid?).with(number).returns(true)
+
+      card.validate
     end
   end
 end

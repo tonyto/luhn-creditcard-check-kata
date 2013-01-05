@@ -15,4 +15,13 @@ class CreditCard
     nil
   end
 
+  def validate
+    Luhn.valid?(@number)
+  end
+end
+
+class Luhn
+  def self.valid? number
+    true
+  end
 end
