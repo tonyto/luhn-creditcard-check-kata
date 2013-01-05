@@ -1,3 +1,5 @@
+require File.expand_path(File.dirname(__FILE__)) + '/luhn.rb'
+
 class CreditCard
   attr_accessor :number
 
@@ -20,8 +22,3 @@ class CreditCard
   end
 end
 
-class Luhn
-  def self.valid? number
-    true
-  end
-end
