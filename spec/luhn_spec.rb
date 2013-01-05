@@ -9,12 +9,14 @@ describe Luhn do
   end
   describe :get_numbers do
     it "should return an array of numbers" do
-      @luhn.get_numbers.must_equal [4,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1]
+      number = '4111111111111111'
+      @luhn.get_numbers(number).must_equal [4,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1]
     end
   end
 
   describe :double_every_other_digit do
     it "should get_numbers" do
+      number = '4111111111111111'
       @luhn.expects(:get_numbers).returns([4,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1])
       @luhn.double_every_other_digit
     end
@@ -43,6 +45,10 @@ describe Luhn do
       doubled_digits = [2,1,2,1,2,1,2,1,2,1,2,1,2,1,8]
       @luhn.stubs(:double_every_other_digit).returns(doubled_digits)
       @luhn.sum_result.must_equal 30
+    end
+    it "should split out numbers that are more than 1 digit" do
+      luhn = Luhn.new('4111111111678941')
+      luhn.sum_result.must_equal 56
     end
   end
 
