@@ -33,5 +33,11 @@ describe CreditCard do
         card.identify.must_equal "MASTERCARD"
       end
     end
+    describe "a VISA card type" do
+      it "should start with 4" do
+        card = subject.new('411111111111111')
+        card.identify.must_equal "VISA"
+      end
+    end
   end
 end
