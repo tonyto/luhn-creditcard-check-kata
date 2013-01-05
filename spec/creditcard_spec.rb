@@ -13,5 +13,12 @@ describe CreditCard do
         card.identify.must_equal "AMEX"
       end
     end
+    describe "a DISCOVER card type" do
+      it "should start with 6011" do
+        card = subject.new('601111111111111')
+        card.identify.must_equal "DISCOVER"
+      end
+
+    end
   end
 end

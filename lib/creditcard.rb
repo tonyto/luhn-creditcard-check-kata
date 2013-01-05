@@ -7,6 +7,7 @@ class CreditCard
 
   def identify
     return "AMEX" if number.start_with?('34')
+    return "DISCOVER" if number.start_with?('6011')
     nil
   end
 
