@@ -46,4 +46,18 @@ describe Luhn do
     end
   end
 
+  describe :valid? do
+    describe :true do
+      it "should equal 0 when mod by 10" do
+        number = '4111111111111111'
+        Luhn.valid?(number).must_equal true
+      end
+    end
+    describe :false do
+      it "should equal 6 when mod by 10" do
+        number = '4111111111111141'
+        Luhn.valid?(number).must_equal false
+      end
+    end
+  end
 end
