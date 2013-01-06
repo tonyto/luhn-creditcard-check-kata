@@ -18,11 +18,12 @@ class CreditCard
   def identify
     return "AMEX" if number.start_with?('34')
     return "AMEX" if number.start_with?('37')
-    return "DISCOVER" if number.start_with?('6011')
-    return "MASTERCARD" if number.start_with?('51')
-    return "MASTERCARD" if number.start_with?('55')
+    return "Discover" if number.start_with?('6011')
+    return "MasterCard" if number.start_with?('51')
+    return "MasterCard" if number.start_with?('55')
     return "VISA" if number.start_with?('4')
-    nil
+
+    "Unknown"
   end
 end
 
