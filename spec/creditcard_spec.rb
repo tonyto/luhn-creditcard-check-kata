@@ -46,10 +46,9 @@ describe CreditCard do
   describe :validate do
     it "should perform the luhn checksum on the number" do
       number = '411111111111111'
-      card = subject.new(number)
       Luhn.expects(:valid?).with(number).returns(true)
 
-      card.validate
+      subject.validate number
     end
   end
 end

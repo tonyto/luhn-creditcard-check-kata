@@ -3,6 +3,14 @@ require File.expand_path(File.dirname(__FILE__)) + '/luhn.rb'
 class CreditCard
   attr_accessor :number
 
+  def self.validate number
+    creditcard = CreditCard.new(number)
+    type = creditcard.identify
+    luhn_result = Luhn.valid?(number) ? "valid" : "invalid"
+
+    "#{type}: #{number} (#{luhn_result})"
+  end
+
   def initialize number
     @number = number
   end
@@ -15,10 +23,6 @@ class CreditCard
     return "MASTERCARD" if number.start_with?('55')
     return "VISA" if number.start_with?('4')
     nil
-  end
-
-  def validate
-    Luhn.valid?(@number)
   end
 end
 
