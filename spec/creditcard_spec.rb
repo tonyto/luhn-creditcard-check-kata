@@ -22,17 +22,17 @@ describe CreditCard do
     describe "a DISCOVER card type" do
       it "should start with 6011" do
         card = subject.new('601111111111111')
-        card.identify.must_equal "DISCOVER"
+        card.identify.must_equal "Discover"
       end
     end
     describe "a MASTERCARD card type" do
       it "should start with 51" do
         card = subject.new('511111111111111')
-        card.identify.must_equal "MASTERCARD"
+        card.identify.must_equal "MasterCard"
       end
       it "should start with 55" do
         card = subject.new('551111111111111')
-        card.identify.must_equal "MASTERCARD"
+        card.identify.must_equal "MasterCard"
       end
     end
     describe "a VISA card type" do
