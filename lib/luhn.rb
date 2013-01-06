@@ -1,7 +1,7 @@
 class Luhn
   def self.valid? number
     luhn = Luhn.new(number)
-    luhn.sum_result()%10 == 0 ? true : false
+    luhn.sum_result()%10 == 0 ? "valid" : "invalid"
   end
 
   attr_accessor :number

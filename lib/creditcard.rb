@@ -6,7 +6,7 @@ class CreditCard
   def self.validate number
     creditcard = CreditCard.new(number)
     type = creditcard.identify
-    luhn_result = Luhn.valid?(number) ? "valid" : "invalid"
+    luhn_result = Luhn.valid?(number)
 
     "#{type}: #{number} (#{luhn_result})"
   end
